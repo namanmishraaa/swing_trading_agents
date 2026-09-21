@@ -44,14 +44,27 @@ indicators — is written once and reused by whoever needs it.
 ## Setup
 
 ```bash
-pip install -r requirements.txt
-# uv users: uv pip install -r requirements.txt
+# Install UV: https://docs.astral.sh/uv/getting-started/installation/
+uv sync
 
 cp .env.example .env   # only needed if you turn on USE_LLM_REASONING
-python main.py
+uv run python main.py
 ```
 
-Requires Python 3.10+.
+`uv sync` creates the project's `.venv` and installs the exact dependency
+versions recorded in `uv.lock`. UV will select a compatible Python version
+automatically; Python 3.10+ is required.
+On Windows, use `uv sync --link-mode=copy` if the default hardlink mode is
+not supported by your filesystem.
+
+To add or update a dependency, edit `pyproject.toml` and run:
+
+```bash
+uv lock
+uv sync
+```
+
+To run commands inside the managed environment, prefix them with `uv run`.
 
 ## Files
 

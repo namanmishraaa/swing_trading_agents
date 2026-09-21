@@ -1,0 +1,13 @@
+[project]
+name = "swing-trading-agents"
+version = "0.1.0"
+description = "A small multi-agent system for scanning NSE stocks for swing-trade setups."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=0.40.0",
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "python-dotenv>=1.0",
+    "yfinance>=0.2.40",
+]
